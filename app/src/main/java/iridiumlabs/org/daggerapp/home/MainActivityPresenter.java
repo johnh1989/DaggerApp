@@ -7,5 +7,13 @@ import com.hannesdorfmann.mosby.mvp.MvpPresenter;
  */
 public interface MainActivityPresenter extends MvpPresenter<MainActivityView> {
 
+    /**
+     * get list of people
+     */
     void getPeople();
+
+    /**
+     * get list of people
+     */
+    void getPeopleRx();
 }

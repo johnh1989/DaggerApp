@@ -61,6 +61,7 @@ public class MainActivityPresenterImpl extends MvpBasePresenter<MainActivityView
         });
     }
 
+    @Override
     public void getPeopleRx(){
         Log.d(TAG, "getPeopleRx() called with: " + "");
         netApi.getPeopleRx()

@@ -11,7 +11,14 @@ import iridiumlabs.org.daggerapp.POJO.Person;
  */
 public interface MainActivityView extends MvpView {
 
+    /**
+     * Display list of people to the user
+     * @param people
+     */
     void showPeople(ArrayList<Person> people);
 
+    /**
+     * Display an error message
+     */
     void showError();
 }

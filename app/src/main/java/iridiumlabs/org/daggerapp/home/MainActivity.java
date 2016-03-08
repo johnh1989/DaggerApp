@@ -17,7 +17,7 @@ import iridiumlabs.org.daggerapp.BaseMvpActivity;
 import iridiumlabs.org.daggerapp.POJO.Person;
 import iridiumlabs.org.daggerapp.R;
 
-public class MainActivity extends BaseMvpActivity<MainActivityView, MainActivityPresenterImpl> implements MainActivityView {
+public class MainActivity extends BaseMvpActivity<MainActivityView, MainActivityPresenter> implements MainActivityView {
 
     private final String TAG = getClass().getSimpleName();
 
@@ -29,7 +29,7 @@ public class MainActivity extends BaseMvpActivity<MainActivityView, MainActivity
 
     @NonNull
     @Override
-    public MainActivityPresenterImpl createPresenter() {
+    public MainActivityPresenter createPresenter() {
         return new MainActivityPresenterImpl();
     }
 
