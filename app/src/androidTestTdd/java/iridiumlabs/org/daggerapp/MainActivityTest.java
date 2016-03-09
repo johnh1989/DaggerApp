@@ -6,8 +6,6 @@ import android.support.test.InstrumentationRegistry;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 
-import junit.framework.Assert;
-
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -17,10 +15,15 @@ import javax.inject.Singleton;
 
 import dagger.Component;
 import iridiumlabs.org.daggerapp.MVP.home.MainActivity;
+import iridiumlabs.org.daggerapp.tdd.Dagger.BadResponseNetworkTestModule;
 import iridiumlabs.org.daggerapp.tdd.Dagger.MainTestComponent;
 import iridiumlabs.org.daggerapp.tdd.Dagger.MainTestModule;
-import iridiumlabs.org.daggerapp.tdd.Dagger.NetworkTestModule;
 import iridiumlabs.org.daggerapp.tdd.MockApp;
+
+import static android.support.test.espresso.Espresso.onView;
+import static android.support.test.espresso.assertion.ViewAssertions.matches;
+import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
+import static android.support.test.espresso.matcher.ViewMatchers.withText;
 
 /**
  * Created by doktor on 3/8/2016.
@@ -32,15 +35,17 @@ public class MainActivityTest {
      * This component allows us to @Inject dependencies into our test, like a mock object
      */
     @Singleton
-    @Component
+    @Component(modules = {MainTestModule.class, BadResponseNetworkTestModule.class})
     public interface TestComponent extends MainTestComponent{
         void inject(MainActivityTest mainActivityTest);
     }
 
     TestComponent component;
 
+    MockApp app;
+
     @Rule
-    public ActivityTestRule<MainActivity> rule = new ActivityTestRule<>(MainActivity.class);
+    public ActivityTestRule<MainActivity> rule = new ActivityTestRule<>(MainActivity.class, true, false);
 
     @Before
     public void setUp(){
@@ -49,21 +54,25 @@ public class MainActivityTest {
          * get an instance of the MockApplication class
          */
         Instrumentation instrumentation = InstrumentationRegistry.getInstrumentation();
-        MockApp app = (MockApp) instrumentation.getTargetContext().getApplicationContext();
+        app = (MockApp) instrumentation.getTargetContext().getApplicationContext();
 
+    }
+
+    @Test
+    public void test_error_response_from_server_displays_toast(){
+
+        //swap our component out for one using the bad response module
         component = DaggerMainActivityTest_TestComponent.builder()
                 .mainTestModule(new MainTestModule(app, MockApp.url))
-                .networkTestModule(new NetworkTestModule())
+                .badResponseNetworkTestModule(new BadResponseNetworkTestModule())
                 .build();
 
         component.inject(this);
 
         MockApp.setComponent(component);
-    }
 
-    @Test
-    public void testActivityLaunch(){
         rule.launchActivity(new Intent());
-        Assert.assertTrue(1==1);
+
+        onView(withText(R.string.api_404)).inRoot(Helpers.isToast()).check(matches(isDisplayed()));
     }
 }
