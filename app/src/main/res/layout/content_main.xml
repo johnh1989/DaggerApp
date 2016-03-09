@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:text="Hello World!"
+        android:text="@string/flavor_type"
         android:textAppearance="?android:attr/textAppearanceMedium"
         tools:text="User Profiles" />
 
