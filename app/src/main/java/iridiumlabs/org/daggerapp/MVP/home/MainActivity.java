@@ -1,8 +1,10 @@
-package iridiumlabs.org.daggerapp.home;
+package iridiumlabs.org.daggerapp.MVP.home;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
@@ -27,6 +29,11 @@ public class MainActivity extends BaseMvpActivity<MainActivityView, MainActivity
     @Bind(R.id.toolbar)
     Toolbar toolbar;
 
+    @Bind(R.id.rv_mainRecyclerView)
+    RecyclerView recyclerViewPersons;
+
+    MainRecyclerAdapter adapter;
+
     @NonNull
     @Override
     public MainActivityPresenter createPresenter() {
@@ -38,6 +45,9 @@ public class MainActivity extends BaseMvpActivity<MainActivityView, MainActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setSupportActionBar(toolbar);
+        adapter = new MainRecyclerAdapter();
+        recyclerViewPersons.setLayoutManager(new LinearLayoutManager(this));
+        recyclerViewPersons.setAdapter(adapter);
     }
 
     @Override
@@ -53,10 +63,11 @@ public class MainActivity extends BaseMvpActivity<MainActivityView, MainActivity
 
     @Override
     public void showPeople(ArrayList<Person> people) {
-        Log.e(TAG, "showPeople called");
+        Log.i(TAG, "showPeople called");
         for (Person p : people){
-            Log.d(TAG, p.getFirstName());
+            Log.i(TAG, p.toString());
         }
+        adapter.setPersonList(people);
     }
 
     @Override

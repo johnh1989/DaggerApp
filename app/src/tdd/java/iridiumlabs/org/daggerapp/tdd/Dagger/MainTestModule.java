@@ -1,4 +1,4 @@
-package iridiumlabs.org.daggerapp.Dagger;
+package iridiumlabs.org.daggerapp.tdd.Dagger;
 
 import android.app.Application;
 
@@ -22,13 +22,13 @@ import retrofit.RxJavaCallAdapterFactory;
  */
 @Module
 @Singleton
-public class MainModule {
+public class MainTestModule {
 
     Application application;
 
     String url;
 
-    public MainModule(Application application, String url){
+    public MainTestModule(Application application, String url){
         this.application = application;
         this.url = url;
     }

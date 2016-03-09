@@ -6,6 +6,7 @@ import iridiumlabs.org.daggerapp.Dagger.DaggerMainComponent;
 import iridiumlabs.org.daggerapp.Dagger.Injector;
 import iridiumlabs.org.daggerapp.Dagger.MainComponent;
 import iridiumlabs.org.daggerapp.Dagger.MainModule;
+import iridiumlabs.org.daggerapp.Dagger.NetworkModule;
 
 
 /**
@@ -16,7 +17,7 @@ import iridiumlabs.org.daggerapp.Dagger.MainModule;
  */
 public class App extends Application {
 
-    private String url = "http://69.119.215.250:3000/";
+    public static String url = "http://69.119.215.250:3000/";
 
     private static MainComponent mainComponent;
 
@@ -30,11 +31,16 @@ public class App extends Application {
     protected MainComponent initialize(){
         return DaggerMainComponent.builder()
                 .mainModule(new MainModule(this, url))
+                .networkModule(new NetworkModule())
                 .build();
     }
 
     public static Injector getInjector() {
         return Injector.get(mainComponent);
+    }
+
+    public static void setComponent(MainComponent component){
+        mainComponent = component;
     }
 
 }

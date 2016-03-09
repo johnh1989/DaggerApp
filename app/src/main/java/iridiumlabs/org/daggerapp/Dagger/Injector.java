@@ -1,6 +1,7 @@
 package iridiumlabs.org.daggerapp.Dagger;
 
-import iridiumlabs.org.daggerapp.home.MainActivityPresenterImpl;
+import iridiumlabs.org.daggerapp.MVP.home.MainActivityPresenterImpl;
+import iridiumlabs.org.daggerapp.MVP.home.MainRecyclerAdapter;
 
 /**
  * Handles all of the code for calling inject on the component(s)
@@ -25,5 +26,9 @@ public class Injector {
 
     public void inject(MainActivityPresenterImpl mainActivityPresenterImpl){
         mainComponent.inject(mainActivityPresenterImpl);
+    }
+
+    public void inject(MainRecyclerAdapter mainRecyclerAdapter){
+        mainComponent.inject(mainRecyclerAdapter);
     }
 }

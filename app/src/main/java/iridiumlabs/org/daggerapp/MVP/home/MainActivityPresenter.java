@@ -1,4 +1,4 @@
-package iridiumlabs.org.daggerapp.home;
+package iridiumlabs.org.daggerapp.MVP.home;
 
 import com.hannesdorfmann.mosby.mvp.MvpPresenter;
 
