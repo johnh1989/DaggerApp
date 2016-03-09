@@ -134,4 +134,23 @@ public class Person {
         this.photo = photo;
     }
 
+    @Override
+    public String toString() {
+        return String.valueOf(this.getId())
+                + " " + this.getFirstName()
+                + " " + this.getLastName()
+                + " " + this.getOccupation()
+                + " " + this.getPhoto();
+
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        return super.equals(o);
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
 }

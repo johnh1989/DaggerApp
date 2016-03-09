@@ -6,12 +6,12 @@ import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.squareup.okhttp.OkHttpClient;
+import com.squareup.picasso.Picasso;
 
 import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
-import iridiumlabs.org.daggerapp.NetApi;
 import iridiumlabs.org.daggerapp.RetrofitLogger;
 import retrofit.GsonConverterFactory;
 import retrofit.Retrofit;
@@ -31,6 +31,12 @@ public class MainModule {
     public MainModule(Application application, String url){
         this.application = application;
         this.url = url;
+    }
+
+    @Provides
+    @Singleton
+    Application proviesApplication(){
+        return application;
     }
 
 
@@ -63,8 +69,9 @@ public class MainModule {
                 .build();
     }
 
+    @Singleton
     @Provides
-    NetApi providesNetApi(Retrofit retrofit){
-        return retrofit.create(NetApi.class);
+    Picasso providesPicasso(Application application){
+        return Picasso.with(application);
     }
 }

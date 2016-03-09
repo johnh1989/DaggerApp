@@ -6,6 +6,7 @@ import iridiumlabs.org.daggerapp.Dagger.DaggerMainComponent;
 import iridiumlabs.org.daggerapp.Dagger.Injector;
 import iridiumlabs.org.daggerapp.Dagger.MainComponent;
 import iridiumlabs.org.daggerapp.Dagger.MainModule;
+import iridiumlabs.org.daggerapp.Dagger.NetworkModule;
 
 
 /**
@@ -30,6 +31,7 @@ public class App extends Application {
     protected MainComponent initialize(){
         return DaggerMainComponent.builder()
                 .mainModule(new MainModule(this, url))
+                .networkModule(new NetworkModule())
                 .build();
     }
 

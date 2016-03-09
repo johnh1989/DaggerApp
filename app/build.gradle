@@ -41,9 +41,10 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:23.2.0'
-    compile 'com.android.support:design:23.2.0'
-    compile 'com.android.support:cardview-v7:23.2.0'
+    compile 'com.android.support:appcompat-v7:23.1.0'
+    compile 'com.android.support:design:23.1.0'
+    compile 'com.android.support:cardview-v7:23.1.0'
+    compile 'com.android.support:recyclerview-v7:23.1.0'
 
     compile 'javax.inject:javax.inject:1'
     compile 'javax.annotation:javax.annotation-api:1.2'
@@ -95,4 +96,6 @@ dependencies {
     androidTestCompile 'com.squareup.assertj:assertj-android:1.1.1'
 
     compile 'com.squareup.retrofit:retrofit-mock:2.0.0-beta2'
+
+    compile 'com.squareup.picasso:picasso:2.5.2'
 }
