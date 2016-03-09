@@ -14,3 +14,4 @@ Application demonstrating how to leverage Dagger and MVP to build and test an an
 - create POJO test module to provide dummy data inside of tests
 - write android tests and implement jacoco test coverage
 - write junit/roboelctric tests 
+- process requires some boiler blate code in android tests. Describe how to create live templates to create boiler plate code
