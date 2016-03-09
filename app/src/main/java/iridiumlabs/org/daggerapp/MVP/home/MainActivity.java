@@ -1,4 +1,4 @@
-package iridiumlabs.org.daggerapp.home;
+package iridiumlabs.org.daggerapp.MVP.home;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;

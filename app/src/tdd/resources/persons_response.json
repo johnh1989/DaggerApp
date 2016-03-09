@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "firstName": "John",
+    "lastName": "Hinton",
+    "occupation": "engineer",
+    "quote": "Good code is testable code :)",
+    "photo": "https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAALFAAAAJDcxZGZlMjMyLTg1MTktNGIzYy04YTVlLWQ4NzJhZjcyZDNkNw.jpg"
+  },
+  {
+    "id": 2,
+    "firstName": "Billy",
+    "lastName": "Parrish",
+    "occupation": "engineer",
+    "quote": "Try/Catch the world",
+    "photo": "https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAQ_AAAAJGZjNzJjZWNlLWI2MTktNDU5Zi04MTRiLWYzZDNhZTcxY2E1Mg.jpg"
+  }
+]

@@ -17,7 +17,7 @@ import iridiumlabs.org.daggerapp.Dagger.NetworkModule;
  */
 public class App extends Application {
 
-    private String url = "http://69.119.215.250:3000/";
+    public static String url = "http://69.119.215.250:3000/";
 
     private static MainComponent mainComponent;
 
@@ -37,6 +37,10 @@ public class App extends Application {
 
     public static Injector getInjector() {
         return Injector.get(mainComponent);
+    }
+
+    public static void setComponent(MainComponent component){
+        mainComponent = component;
     }
 
 }

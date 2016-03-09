@@ -1,4 +1,4 @@
-package iridiumlabs.org.daggerapp.home;
+package iridiumlabs.org.daggerapp.MVP.home;
 
 import android.app.Application;
 import android.support.v7.widget.RecyclerView;
@@ -77,7 +77,7 @@ public class MainRecyclerAdapter extends RecyclerView.Adapter<MainRecyclerAdapte
 
     public void add(Person person){
         this.personsList.add(person);
-        this.notifyItemInserted(personsList.size()+1);
+        this.notifyItemInserted(personsList.size() + 1);
     }
 
     @Override

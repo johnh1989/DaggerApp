@@ -1,4 +1,4 @@
-package iridiumlabs.org.daggerapp;
+package iridiumlabs.org.daggerapp.Model;
 
 import java.util.ArrayList;
 

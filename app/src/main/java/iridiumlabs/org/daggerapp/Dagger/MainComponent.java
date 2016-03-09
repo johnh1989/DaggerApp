@@ -3,8 +3,8 @@ package iridiumlabs.org.daggerapp.Dagger;
 import javax.inject.Singleton;
 
 import dagger.Component;
-import iridiumlabs.org.daggerapp.home.MainActivityPresenterImpl;
-import iridiumlabs.org.daggerapp.home.MainRecyclerAdapter;
+import iridiumlabs.org.daggerapp.MVP.home.MainActivityPresenterImpl;
+import iridiumlabs.org.daggerapp.MVP.home.MainRecyclerAdapter;
 
 @Singleton
 @Component(modules = {MainModule.class, NetworkModule.class})

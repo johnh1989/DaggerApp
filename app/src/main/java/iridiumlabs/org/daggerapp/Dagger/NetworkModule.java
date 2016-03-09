@@ -4,7 +4,7 @@ import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
-import iridiumlabs.org.daggerapp.NetApi;
+import iridiumlabs.org.daggerapp.Model.NetApi;
 import retrofit.Retrofit;
 
 /**

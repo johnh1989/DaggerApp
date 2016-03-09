@@ -1,4 +1,4 @@
-package iridiumlabs.org.daggerapp.home;
+package iridiumlabs.org.daggerapp.MVP.home;
 
 import android.util.Log;
 
@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import javax.inject.Inject;
 
 import iridiumlabs.org.daggerapp.App;
-import iridiumlabs.org.daggerapp.NetApi;
+import iridiumlabs.org.daggerapp.Model.NetApi;
 import iridiumlabs.org.daggerapp.POJO.Person;
 import retrofit.Callback;
 import retrofit.Response;
