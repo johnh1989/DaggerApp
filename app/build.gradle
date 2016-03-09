@@ -56,6 +56,7 @@ android {
 
         }
     }
+
 }
 
 dependencies {
@@ -122,3 +123,14 @@ dependencies {
     compile 'com.squareup.picasso:picasso:2.5.2'
 
 }
+
+apply plugin: 'jacoco'
+
+jacoco {
+    toolVersion = "0.7.5.201505241946"
+}
+
+//View reports about tests that ran in app\build\reports
+//TODO create a script or plugin to simplify this process
+//gradlew testTddDebugUnitTest
+//gradlew connectedTddDebugAndroidTest
