@@ -29,9 +29,8 @@ public class BadResponseNetworkTestModule {
         return new NetApi() {
             @Override
             public Observable<ArrayList<Person>> getPeopleRx() {
-                ArrayList<Person> personList = new ArrayList<>();
-                //TODO make this a 404
-                return Observable.just(personList);
+                //TODO make this a 404 or fail
+                return Observable.just(null);
             }
 
             @Override
