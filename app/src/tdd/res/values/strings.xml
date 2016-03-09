@@ -1,3 +1,5 @@
 <resources>
     <string name="title_activity_delete_me">DeleteMe</string>
+    <string name="api_404">An Error occurred :(</string>
+    <string name="flavor_type">TDD Mock Mode</string>
 </resources>

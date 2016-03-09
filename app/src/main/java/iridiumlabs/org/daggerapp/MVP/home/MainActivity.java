@@ -58,7 +58,7 @@ public class MainActivity extends BaseMvpActivity<MainActivityView, MainActivity
 
     @Override
     public void showError() {
-        Toast.makeText(MainActivity.this, "An Error occurred :(", Toast.LENGTH_SHORT).show();
+        Toast.makeText(MainActivity.this, getString(R.string.api_404), Toast.LENGTH_SHORT).show();
     }
 
     @Override
