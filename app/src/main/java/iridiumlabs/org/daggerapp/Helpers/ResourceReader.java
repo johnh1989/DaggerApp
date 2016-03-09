@@ -14,7 +14,7 @@ public class ResourceReader {
 
     private ResourceReader(){}
 
-    public ResourceReader get(){
+    public static ResourceReader get(){
         if (instance == null){
             instance = new ResourceReader();
         }
