@@ -15,3 +15,4 @@ Application demonstrating how to leverage Dagger and MVP to build and test an an
 - write android tests and implement jacoco test coverage
 - write junit/roboelctric tests 
 - process requires some boiler blate code in android tests. Describe how to create live templates to create boiler plate code
+- make sure to note that if you are writing a test and extending your component, when you annotate that interface with @Component, make sure its importing dagger.component and not the one from espresso!!!
