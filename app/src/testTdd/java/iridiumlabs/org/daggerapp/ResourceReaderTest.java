@@ -40,7 +40,8 @@ public class ResourceReaderTest {
         ArrayList<Person> personList = null;
 
         personList =
-                new Gson().fromJson(ResourceReader.get().getJson("persons_response.json"), new TypeToken<List<Person>>(){}.getType());
+                new Gson().fromJson(ResourceReader.get().getJson("persons_response.json"),
+                        new TypeToken<List<Person>>(){}.getType());
 
         Assert.assertTrue(personList != null);
         Assert.assertTrue(!personList.isEmpty());

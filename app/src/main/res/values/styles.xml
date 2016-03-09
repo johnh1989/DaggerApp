@@ -19,11 +19,15 @@
         <!-- primary text color -->
         <item name="android:textColor">@color/textColor</item>
 
+        <item name="android:textColorPrimary">#212121</item>
+
         <!-- color used on buttons -->
         <item name="colorButtonNormal">@color/colorAccent</item>
 
         <!-- color used when pressing clickables -->
         <item name="colorControlHighlight">@color/colorPrimaryDark</item>
+        
+        <item name="android:divider">@color/divider</item>
     </style>
 
     <style name="AppTheme.NoActionBar">

@@ -15,6 +15,15 @@ import iridiumlabs.org.daggerapp.tdd.Dagger.NetworkTestModule;
  */
 public class MockApp extends App {
 
+    /**
+     * when we run the app as the tdd flavor, we want to build our component with legitimate mocks
+     * This way, we can "test drive" the app, and never have to make a slow network request, DB query,
+     * or any other long running operation. we can just return whatever data we want immediately.
+     * View the {@link MainTestModule} and {@link NetworkTestModule} for details on how this works.
+     * By providing our own implemention of the {@link iridiumlabs.org.daggerapp.Model.NetApi},
+     * we can return data instantly and stay on the main thread for mock/testing purposes.
+     * @return
+     */
     @Override
     protected MainComponent initialize(){
         return DaggerMainTestComponent.builder()

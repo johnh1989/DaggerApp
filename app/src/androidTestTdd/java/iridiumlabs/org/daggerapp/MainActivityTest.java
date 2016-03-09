@@ -6,6 +6,8 @@ import android.support.test.InstrumentationRegistry;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 
+import junit.framework.Assert;
+
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -21,8 +23,10 @@ import iridiumlabs.org.daggerapp.tdd.Dagger.MainTestModule;
 import iridiumlabs.org.daggerapp.tdd.MockApp;
 
 import static android.support.test.espresso.Espresso.onView;
+import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
+import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
 
 /**
@@ -74,5 +78,16 @@ public class MainActivityTest {
         rule.launchActivity(new Intent());
 
         onView(withText(R.string.api_404)).inRoot(Helpers.isToast()).check(matches(isDisplayed()));
+
+        //this runs our Rx call. make sure the toast we expect to be displayed is displayed when the call fails
+        onView(withId(R.id.fab)).perform(click());
+
+        onView(withText(R.string.api_404)).inRoot(Helpers.isToast()).check(matches(isDisplayed()));
+    }
+
+    @Test
+    public void test_good_response_from_server_updates_recyclerview(){
+        //TODO
+        Assert.assertTrue(1 == 1);
     }
 }
