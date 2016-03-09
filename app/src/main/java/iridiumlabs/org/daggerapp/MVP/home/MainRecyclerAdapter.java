@@ -92,7 +92,7 @@ public class MainRecyclerAdapter extends RecyclerView.Adapter<MainRecyclerAdapte
 
     @Override
     public void onBindViewHolder(PersonViewHolder holder, int position) {
-        Person person = personsList.get(0);
+        Person person = personsList.get(position);
         holder.firtName.setText(person.getFirstName());
         holder.lastName.setText(person.getLastName());
         holder.occupation.setText(person.getOccupation());
