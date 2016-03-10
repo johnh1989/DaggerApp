@@ -10,7 +10,7 @@ import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
-import iridiumlabs.org.daggerapp.Helpers.ResourceReader;
+import iridiumlabs.org.daggerapp.Utilities.ResourceReader;
 import iridiumlabs.org.daggerapp.Model.NetApi;
 import iridiumlabs.org.daggerapp.POJO.Person;
 import retrofit.Call;

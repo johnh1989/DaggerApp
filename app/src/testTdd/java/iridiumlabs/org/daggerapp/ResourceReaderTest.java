@@ -13,7 +13,7 @@ import org.robolectric.annotation.Config;
 import java.util.ArrayList;
 import java.util.List;
 
-import iridiumlabs.org.daggerapp.Helpers.ResourceReader;
+import iridiumlabs.org.daggerapp.Utilities.ResourceReader;
 import iridiumlabs.org.daggerapp.POJO.Person;
 import iridiumlabs.org.daggerapp.tdd.MockApp;
 
