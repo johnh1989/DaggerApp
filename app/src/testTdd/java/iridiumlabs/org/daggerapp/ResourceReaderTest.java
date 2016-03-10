@@ -13,7 +13,7 @@ import org.robolectric.annotation.Config;
 import java.util.ArrayList;
 import java.util.List;
 
-import iridiumlabs.org.daggerapp.Utilities.ResourceReader;
+import iridiumlabs.org.daggerapp.Utilities.UtilityTools;
 import iridiumlabs.org.daggerapp.POJO.Person;
 import iridiumlabs.org.daggerapp.tdd.MockApp;
 
@@ -40,7 +40,7 @@ public class ResourceReaderTest {
         ArrayList<Person> personList = null;
 
         personList =
-                new Gson().fromJson(ResourceReader.get().getJson("persons_response.json"),
+                new Gson().fromJson(UtilityTools.get().getJson("persons_response.json"),
                         new TypeToken<List<Person>>(){}.getType());
 
         Assert.assertTrue(personList != null);

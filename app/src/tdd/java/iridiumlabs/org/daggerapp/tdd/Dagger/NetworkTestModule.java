@@ -10,9 +10,9 @@ import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
-import iridiumlabs.org.daggerapp.Utilities.ResourceReader;
 import iridiumlabs.org.daggerapp.Model.NetApi;
 import iridiumlabs.org.daggerapp.POJO.Person;
+import iridiumlabs.org.daggerapp.Utilities.UtilityTools;
 import retrofit.Call;
 import retrofit.Retrofit;
 import retrofit.mock.Calls;
@@ -31,21 +31,24 @@ public class NetworkTestModule {
             @Override
             public Observable<ArrayList<Person>> getPeopleRx() {
                 ArrayList<Person> personList =
-                        gson.fromJson(ResourceReader.get().getJson("persons_response.json"),
+                        gson.fromJson(UtilityTools.get().getJson("persons_response.json"),
                         new TypeToken<List<Person>>(){}.getType()
                         );
 
-                return Observable.just(personList);
+                UtilityTools.RetroMock<ArrayList<Person>>.createMocked
             }
 
             @Override
             public Call<ArrayList<Person>> getPeopleCall() {
                 ArrayList<Person> personList =
-                        gson.fromJson(ResourceReader.get().getJson("persons_response.json"),
+                        gson.fromJson(UtilityTools.get().getJson("persons_response.json"),
                                 new TypeToken<List<Person>>(){}.getType()
                         );
 
-                return Calls.response(personList, retrofit);
+                return Calls.response(
+                        UtilityTools.get().createResponseWithCodeAndJson(null,
+                                UtilityTools.get().getJson("persons_response.json")),
+                        retrofit);
             }
         };
     }
