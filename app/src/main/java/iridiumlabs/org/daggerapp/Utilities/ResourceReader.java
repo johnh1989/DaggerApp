@@ -1,4 +1,4 @@
-package iridiumlabs.org.daggerapp.Helpers;
+package iridiumlabs.org.daggerapp.Utilities;
 
 import java.io.BufferedReader;
 import java.io.IOException;
