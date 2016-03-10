@@ -10,14 +10,14 @@ import rx.Observable;
 /**
  * Created by doktor on 3/10/2016.
  */
-public class RetroMocker<T> {
+public final class RetroMocker {
     /**
      * This method allows us to return a mocked response with retrofit
      * @param responseCode setting to null defualts to 200
      * @param json
      * @return
      */
-    public Response createResponseWithCodeAndJson(@Nullable Integer responseCode, String json) {
+    public static Response createResponseWithCodeAndJson(@Nullable Integer responseCode, String json) {
         if (responseCode == null){
             responseCode = 200;
         }
@@ -33,7 +33,7 @@ public class RetroMocker<T> {
                         .build());
     }
 
-    public Observable<T> createMockedObervable(T obj){
+    public static <T> Observable<T> createMockedObervable(T obj){
         return Observable.just(obj);
     }
 }

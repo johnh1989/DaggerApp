@@ -12,6 +12,7 @@ import dagger.Module;
 import dagger.Provides;
 import iridiumlabs.org.daggerapp.Model.NetApi;
 import iridiumlabs.org.daggerapp.POJO.Person;
+import iridiumlabs.org.daggerapp.Utilities.RetroMocker;
 import iridiumlabs.org.daggerapp.Utilities.UtilityTools;
 import retrofit.Call;
 import retrofit.Retrofit;
@@ -42,10 +43,12 @@ public class NetworkTestModule {
             public Call<ArrayList<Person>> getPeopleCall() {
                 ArrayList<Person> personList =
                         gson.fromJson(UtilityTools.get().getJson("persons_response.json"),
-                                new TypeToken<List<Person>>(){}.getType()
+                                new TypeToken<List<Person>>() {
+                                }.getType()
                         );
 
                 return Calls.response(personList, retrofit);
+
             }
         };
     }
