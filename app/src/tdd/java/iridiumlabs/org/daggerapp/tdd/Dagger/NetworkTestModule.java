@@ -35,7 +35,7 @@ public class NetworkTestModule {
                         new TypeToken<List<Person>>(){}.getType()
                         );
 
-                UtilityTools.RetroMock<ArrayList<Person>>.createMocked
+                return Observable.just(personList);
             }
 
             @Override
@@ -45,10 +45,7 @@ public class NetworkTestModule {
                                 new TypeToken<List<Person>>(){}.getType()
                         );
 
-                return Calls.response(
-                        UtilityTools.get().createResponseWithCodeAndJson(null,
-                                UtilityTools.get().getJson("persons_response.json")),
-                        retrofit);
+                return Calls.response(personList, retrofit);
             }
         };
     }
