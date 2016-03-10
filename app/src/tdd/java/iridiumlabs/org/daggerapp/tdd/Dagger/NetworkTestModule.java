@@ -26,12 +26,12 @@ public class NetworkTestModule {
 
     @Singleton
     @Provides
-    NetApi providesNetApi(final Retrofit retrofit){
+    NetApi providesNetApi(final Retrofit retrofit, final Gson gson){
         return new NetApi() {
             @Override
             public Observable<ArrayList<Person>> getPeopleRx() {
                 ArrayList<Person> personList =
-                        new Gson().fromJson(ResourceReader.get().getJson("persons_response.json"),
+                        gson.fromJson(ResourceReader.get().getJson("persons_response.json"),
                         new TypeToken<List<Person>>(){}.getType()
                         );
 
@@ -41,7 +41,7 @@ public class NetworkTestModule {
             @Override
             public Call<ArrayList<Person>> getPeopleCall() {
                 ArrayList<Person> personList =
-                        new Gson().fromJson(ResourceReader.get().getJson("persons_response.json"),
+                        gson.fromJson(ResourceReader.get().getJson("persons_response.json"),
                                 new TypeToken<List<Person>>(){}.getType()
                         );
 
