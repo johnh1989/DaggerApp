@@ -1,10 +1,8 @@
 apply plugin: 'jacoco'
 
-jacoco {
-    toolVersion = "0.7.5.201505241946"
-}
-
 project.afterEvaluate {
+
+
     // Grab all build types and product flavors
     def buildTypes = android.buildTypes.collect { type -> type.name }
     def productFlavors = android.productFlavors.collect { flavor -> flavor.name }
@@ -21,16 +19,19 @@ project.afterEvaluate {
                 sourceName = "${productFlavorName}${buildTypeName.capitalize()}"
                 sourcePath = "${productFlavorName}/${buildTypeName}"
             }
-            def testTaskName = "test${sourceName.capitalize()}UnitTest"
+            def testTaskName = "connected${sourceName.capitalize()}AndroidTest"
 
             // Create coverage task of form 'testFlavorTypeCoverage' depending on 'testFlavorTypeUnitTest'
+            //noinspection GroovyAssignabilityCheck
             task "${testTaskName}Coverage" (type:JacocoReport, dependsOn: "$testTaskName") {
                 group = "Reporting"
                 description = "Generate Jacoco coverage reports on the ${sourceName.capitalize()} build."
 
                 classDirectories = fileTree(
                         dir: "${project.buildDir}/intermediates/classes/${sourcePath}",
-                        excludes: ['**/R.class',
+                        excludes: ['**/Dagger',
+                                   '**/R.class',
+                                   'android/',
                                    '**/R$*.class',
                                    '**/*$ViewInjector*.*',
                                    '**/*$ViewBinder*.*',
@@ -45,11 +46,15 @@ project.afterEvaluate {
                 ]
                 additionalSourceDirs = files(coverageSourceDirs)
                 sourceDirectories = files(coverageSourceDirs)
-                executionData = files("${project.buildDir}/jacoco/${testTaskName}.exec")
+                executionData = fileTree(dir: project.projectDir, includes:
+                        ['**/*.exec', '**/*.ec'])
 
                 reports {
                     xml.enabled = true
+                    xml.destination = "${buildDir}/jacocoTestReport.xml"
+                    csv.enabled = false
                     html.enabled = true
+                    html.destination = "${buildDir}/reports/jacoco/"
                 }
             }
         }

@@ -36,6 +36,7 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:textColor="@color/textColor"
                     android:paddingLeft="@dimen/activity_horizontal_margin"
                     android:id="@+id/tv_firstName"
                     android:layout_width="wrap_content"
@@ -43,6 +44,7 @@
                     tools:text="John" />
 
                 <TextView
+                    android:textColor="@color/textColor"
                     android:paddingLeft="8dp"
                     android:paddingRight="@dimen/activity_horizontal_margin"
                     android:id="@+id/tv_lastName"
@@ -52,6 +54,7 @@
             </LinearLayout>
 
             <TextView
+                android:textColor="@color/textColor"
                 android:paddingLeft="@dimen/activity_horizontal_margin"
                 android:paddingRight="@dimen/activity_horizontal_margin"
                 android:id="@+id/tv_occupation"
@@ -63,6 +66,7 @@
                 tools:text="Engineer" />
 
             <TextView
+                android:textColor="@color/textColor"
                 android:id="@+id/tvQuote"
                 android:paddingLeft="@dimen/activity_horizontal_margin"
                 android:paddingRight="@dimen/activity_horizontal_margin"
